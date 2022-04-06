@@ -17,8 +17,7 @@ return new class extends Migration
             $table->foreign('id_dep')
                 ->references('id')->on('departamentos')
                 ->onDelete('cascade')
-                ->onUpdate('cascade')
-                ->change();
+                ->onUpdate('cascade');
         });
     }
 
@@ -30,11 +29,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('id_dep')
-                ->references('id')->on('departamentos')
-                ->onDelete('cascade')
-                ->onUpdate('cascade')
-                ->change();
+            //$table->dropColumn('id_dep');
         });
     }
 };

@@ -64,7 +64,8 @@
                             <label for="admin" class="col-md-4 col-form-label text-md-end">{{ __('Admin') }}</label>
 
                             <div class="col-md-6">
-                                <input id="admin" type="checkbox" name="admin" class="switch-input" value="1" {{ old('admin') ==1 ? 'checked' : '' }}/>
+                                <input type="hidden" name="admin" value="0">
+                                <input id="admin" type="checkbox" name="admin" class="switch-input" value="1" {{ old('admin') == 1 ? 'checked' : '' }}/>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -72,9 +73,11 @@
 
                             <div class="col-md-6">
                                 <select id="id_dep" name="id_dep" class="switch-input">
-                                    <option value="1">Departamento 1</option>
-                                    <option value="2">Departamento 2</option>
-                                    <option value="3">Departamento 3</option>
+                                    <!-- Selecionnar todos os inputs de diferentes departamentos -->
+                                   @php $departamentos = DB::select('select * from departamentos'); @endphp
+                                    @foreach($departamentos as $departamento)
+                                    <option value="{{$departamento->id}}">{{$departamento->nome}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
