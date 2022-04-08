@@ -30,3 +30,30 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+function loadmodal(){
+    let modal = document.getElementById('modal_add');
+
+    modal.innerHTML="<div class=\"modal\" tabindex=\"-1\">\n" +
+        "  <div class=\"modal-dialog\">\n" +
+        "    <div class=\"modal-content\">\n" +
+        "      <div class=\"modal-header\">\n" +
+        "        <h5 class=\"modal-title\">Adicione Um Departamento</h5>\n" +
+        "        <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>\n" +
+        "      </div>\n" +
+        "      <div class=\"modal-body\">\n" +
+        "        <form action=\"{{url('/departamentos/add')}}\" method='post'>" +
+        "          <label name=\" departamento \">Introduza o nome do seu departamento:</label>  " +
+        "           <input type=\" text \" > " +
+        "       </form>\n" +
+        "      </div>\n" +
+        "      <div class=\"modal-footer\">\n" +
+        "        <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button>\n" +
+        "        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\n" +
+        "      </div>\n" +
+        "    </div>\n" +
+        "  </div>\n" +
+        "</div>\n";
+
+
+}
